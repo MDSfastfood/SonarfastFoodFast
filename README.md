@@ -33,6 +33,12 @@ createdb -U postgres fastfoodfast
 
 Digite a senha do usuário `postgres` caso seja solicitada.
 
+Caso o comando `createdb` não seja reconhecido, abra o **SQL Shell (psql)** do PostgreSQL e execute:
+
+```sql
+CREATE DATABASE fastfoodfast;
+```
+
 ### 4. Crie o arquivo `.env`
 
 Na raiz do projeto, crie um arquivo chamado `.env`:
@@ -43,7 +49,7 @@ NODE_ENV=local
 PORT=9999
 ```
 
-Troque `SUA_SENHA` pela senha do seu PostgreSQL.
+Troque `SUA_SENHA` pela senha do seu usuário `postgres`.
 
 ## Configuração automática
 
