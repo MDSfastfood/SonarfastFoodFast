@@ -3,6 +3,8 @@ import supertest from 'supertest';
 import server from '../server/api/server';
 import authC from '../server/api/controllers/authController';
 
+// ADICIONEI UM COMENTARIO ISSUE-1-DAVI
+
 describe('Server', () => {
   const orders = {};
   const user = {};
