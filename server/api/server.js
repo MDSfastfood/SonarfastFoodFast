@@ -4,6 +4,8 @@ import path from 'path';
 import upload from './helpers/upload';
 import AuthC from './controllers/authController';
 
+// adicionei um comentario no server.js
+
 export default (orderC, userC, menuC) => {
   const server = express();
   const prefix = '/api/v1';
