@@ -456,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
               const imgDiv = document.querySelector('#origImg');
               imgDiv.innerHTML = `<a href="${img}" target="_blank"><img src="${img}" alt="${name}" style="height: 100px; width:100px;"></a>`;
 
-              document.querySelector('#editForm #name').value = name;
+              document.querySelector('#editForm #editName').value = name;
               document.querySelector('#editForm #price').value = price;
               document.querySelector('#editForm #genre').value = genre;
               document.querySelector('#editForm #isAvailable').value = isavailable;
