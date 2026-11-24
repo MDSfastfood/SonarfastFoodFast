@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const editForm = document.getElementById('editForm');
                 const imgURL = document.querySelector('#editForm #imgURL');
-                const imgUpload = document.querySelector('#editForm #img');
+                const imgUpload = document.querySelector('#editForm #editImg');
                 const editMenuMsg = document.getElementById('editMenuMsg');
 
                 if (imgURL.value && imgUpload.files[0]) {
