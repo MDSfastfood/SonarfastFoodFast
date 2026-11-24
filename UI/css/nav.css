@@ -172,7 +172,7 @@
     float: none;
     display: block;
     text-align: left;
-    font: 14px;
+    font-size: 14px;
   }
   .responsiveNav #cartInfo{
     float: left;
