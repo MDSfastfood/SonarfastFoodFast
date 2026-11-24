@@ -457,8 +457,8 @@ document.addEventListener('DOMContentLoaded', () => {
               imgDiv.innerHTML = `<a href="${img}" target="_blank"><img src="${img}" alt="${name}" style="height: 100px; width:100px;"></a>`;
 
               document.querySelector('#editForm #editName').value = name;
-              document.querySelector('#editForm #price').value = price;
-              document.querySelector('#editForm #genre').value = genre;
+              document.querySelector('#editForm #editPrice').value = price;
+              document.querySelector('#editForm #editGenre').value = genre;
               document.querySelector('#editForm #isAvailable').value = isavailable;
               document.querySelector('#editForm #desc').value = description;
 
@@ -467,9 +467,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
               const saveBtn = document.getElementById('saveBtn');
               saveBtn.onclick = () => {
-                name = document.querySelector('#editForm #name').value;
-                price = document.querySelector('#editForm #price').value;
-                genre = document.querySelector('#editForm #genre').value;
+                name = document.querySelector('#editForm #editName').value;
+                price = document.querySelector('#editForm #editPrice').value;
+                genre = document.querySelector('#editForm #editGenre').value;
                 isavailable = document.querySelector('#editForm #isAvailable').value;
                 description = document.querySelector('#editForm #desc').value;
 
