@@ -252,7 +252,7 @@ th, td {
     font-size: 16px;
     padding: 10px;
     border: 0;
-    font: bold;
+    font-weight: bold;
 }
 
 /* Pagination links */
