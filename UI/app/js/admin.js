@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
               document.querySelector('#editForm #editName').value = name;
               document.querySelector('#editForm #editPrice').value = price;
-              document.querySelector('#editForm #genre').value = genre;
+              document.querySelector('#editForm #editGenre').value = genre;
               document.querySelector('#editForm #isAvailable').value = isavailable;
               document.querySelector('#editForm #desc').value = description;
 
@@ -469,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
               saveBtn.onclick = () => {
                 name = document.querySelector('#editForm #editName').value;
                 price = document.querySelector('#editForm #editPrice').value;
-                genre = document.querySelector('#editForm #genre').value;
+                genre = document.querySelector('#editForm #editGenre').value;
                 isavailable = document.querySelector('#editForm #isAvailable').value;
                 description = document.querySelector('#editForm #desc').value;
 
