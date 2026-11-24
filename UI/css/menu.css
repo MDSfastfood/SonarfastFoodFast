@@ -176,7 +176,7 @@ th, td {
 
 #cancelOdr:hover, .reorder:hover{
     opacity: 1;
-    font: bolder;
+    font-weight: bolder;
 }
 
 /*****MODAL*****/
