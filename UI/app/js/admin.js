@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
               document.querySelector('#editForm #editPrice').value = price;
               document.querySelector('#editForm #editGenre').value = genre;
               document.querySelector('#editForm #isAvailable').value = isavailable;
-              document.querySelector('#editForm #desc').value = description;
+              document.querySelector('#editForm #editDesc').value = description;
 
               document.getElementById('editModalTitle').innerHTML = `<h1>Edit Food #${foodid}</h1>`;
               displayModal(editModal, span2);
@@ -471,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 price = document.querySelector('#editForm #editPrice').value;
                 genre = document.querySelector('#editForm #editGenre').value;
                 isavailable = document.querySelector('#editForm #isAvailable').value;
-                description = document.querySelector('#editForm #desc').value;
+                description = document.querySelector('#editForm #editDesc').value;
 
                 const editForm = document.getElementById('editForm');
                 const imgURL = document.querySelector('#editForm #imgURL');
