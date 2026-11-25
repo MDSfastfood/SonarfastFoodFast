@@ -153,7 +153,7 @@
 												<td class="day"><select id="toDay"></select></td>
 											</tr>
 											<tr>
-												<td class="label">Frequency:</td>
+												<td class="label"><label for="freq">Frequency:</label></td>
 												<td></td>
 												<td><select id="freq">
 													<option value="daily">Daily</option>
@@ -179,6 +179,7 @@
 						<div id="manageOrdersMsg"></div>
 						<div id="search">
 						<i class="fa fa-search"></i>
+						<label for="orderSearch">Search orders:</label>
 						<input type="text" id="orderSearch" placeholder="Search for order(s) by any column value...">
 						</div>		
 							<table id="adminOrdersTable">
@@ -242,7 +243,7 @@
 													<td><input type="file" name="img" id="img"></td>
 												</tr>
 												<tr>
-													<td class="label"><label for="description">Description:</label></td>
+													<td class="label"><label for="desc">Description:</label></td>
 													<td><textarea name="description" id="desc" placeholder="Add a description of your food here"></textarea></td>
 												</tr>
 												</table>
@@ -258,6 +259,7 @@
 						<div id="manageMenuMsg" class="err"></div>
 						<div id="searchMenu">
 							<i class="fa fa-search"></i>
+							<label for="menuSearchInp">Search menu:</label>
 							<input type="text" id="menuSearchInp" placeholder="Search for food item...">
 							</div>	
 									<table id="adminMenuTable">
@@ -311,9 +313,10 @@
 												<tr>
 													<td class="label"><label for="editImg">Image:</label></td>
 													<td>
+														<label for="imgURL">Image URL:</label>
 														<input type="text" name="img" id="imgURL" placeholder="Paste new image link/url">
 														<br>
-														<input type="text" id="imgInfo" value="OR upload a new image file:" disabled>
+														<span id="imgInfo">OR upload a new image file:</span>
 														<input type="file" name="img" class="img" id="editImg">
 													</td>
 												</tr>
