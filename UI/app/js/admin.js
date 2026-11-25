@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ordersMsg.className = 'err';
                         ordersMsg.innerHTML = upRes.message;
                         if (upRes.message === 'undefined' || upRes.message === 'jwt expired') {
-                          localStorage.clear();
+                          ['token', 'username', 'address', 'phone', 'email', 'id'].forEach(key => localStorage.removeItem(key));
                           window.location.href = 'login';
                         }
                       }
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       ordersMsg.className = 'err';
                       ordersMsg.innerHTML = upRes.message;
                       if (upRes.message === 'undefined' || upRes.message === 'jwt expired') {
-                        localStorage.clear();
+                        ['token', 'username', 'address', 'phone', 'email', 'id'].forEach(key => localStorage.removeItem(key));
                         window.location.href = 'login';
                       }
                     }
@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ordersMsg.className = 'err';
           ordersMsg.innerHTML = res.message;
           if (res.message === 'undefined' || res.message === 'jwt expired') {
-            localStorage.clear();
+            ['token', 'username', 'address', 'phone', 'email', 'id'].forEach(key => localStorage.removeItem(key));
             window.location.href = 'login';
           }
         }
@@ -355,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
         if (res.error === 'undefined' || res.error === 'jwt expired') {
-          localStorage.clear();
+          ['token', 'username', 'address', 'phone', 'email', 'id'].forEach(key => localStorage.removeItem(key));
           window.location.href = 'login';
         }
         if (res.error) {
@@ -567,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
           manageMenuMsg.className = 'err';
           manageMenuMsg.innerHTML = res.message;
           if (res.message === 'undefined' || res.message === 'jwt expired') {
-            localStorage.clear();
+            ['token', 'username', 'address', 'phone', 'email', 'id'].forEach(key => localStorage.removeItem(key));
             window.location.href = 'login';
           }
         }
@@ -577,6 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ordersMsg.innerHTML = '';
     document.getElementById('allStats').style.display = 'none';
     document.getElementById('allOrders').style.display = 'none';
+    document.getElementById('allCoupons').style.display = 'none';
     document.getElementById('allFood').style.display = 'block';
   };
 
@@ -584,6 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSideNav('0');
     document.getElementById('allOrders').style.display = 'none';
     document.getElementById('allFood').style.display = 'none';
+    document.getElementById('allCoupons').style.display = 'none';
     document.getElementById('allStats').style.display = 'block';
   };
 });

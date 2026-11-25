@@ -52,8 +52,40 @@ loginBtn.onclick = () => {
         localStorage.setItem('phone', res.user.phone);
         localStorage.setItem('email', res.user.email);
         localStorage.setItem('id', res.user.userid);
+        const anonymousCart = localStorage.getItem('fastfoodfast.cart.v1.anonymous');
+        const userCartKey = `fastfoodfast.cart.v1.${res.user.userid}`;
+        let mergeFailed = false;
+        if (anonymousCart) {
+          try {
+            const guest = JSON.parse(anonymousCart);
+            const currentText = localStorage.getItem(userCartKey);
+            const current = currentText ? JSON.parse(currentText) : { version: 2, items: [] };
+            if (!Array.isArray(guest.items) || !Array.isArray(current.items)) throw new Error('Invalid cart');
+            const normalizeId = (item) => {
+              if (!item || item.productId === undefined || item.productId === null) return null;
+              const productId = String(item.productId).trim();
+              if (!/^\d+$/.test(productId) || Number(productId) <= 0) return null;
+              return String(Number(productId));
+            };
+            const items = current.items.map(item => ({ productId: normalizeId(item), quantity: item.quantity }))
+              .filter(item => item.productId && Number.isInteger(item.quantity) && item.quantity > 0);
+            guest.items.map(item => ({ productId: normalizeId(item), quantity: item.quantity }))
+              .filter(item => item.productId && Number.isInteger(item.quantity) && item.quantity > 0)
+              .forEach((guestItem) => {
+                const item = items.find(existing => existing.productId === guestItem.productId);
+                if (item) item.quantity += guestItem.quantity;
+                else items.push(guestItem);
+            });
+            localStorage.setItem(userCartKey, JSON.stringify({ version: 2, items }));
+            localStorage.removeItem('fastfoodfast.cart.v1.anonymous');
+          } catch (error) {
+            mergeFailed = true;
+          }
+        }
 
-        password2Err.innerHTML = `<span style='color: greenyellow'>${res.message}...redirecting</span>`;
+        password2Err.textContent = mergeFailed
+          ? `${res.message}. Login succeeded, but the cart could not be merged; your saved carts were preserved.`
+          : `${res.message}...redirecting`;
         if (res.user.role === 'admin') {
           localStorage.setItem(res.user.username, 'an');
           setTimeout(() => {

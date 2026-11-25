@@ -21,6 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // IMPLEMENT LOGOUT
 const logout = document.getElementById('logout');
 logout.addEventListener('click', () => {
-  localStorage.clear();
+  ['token', 'username', 'address', 'phone', 'email', 'id'].forEach(key => localStorage.removeItem(key));
   window.location.href = 'login';
 });

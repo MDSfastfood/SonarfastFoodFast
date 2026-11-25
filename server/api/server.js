@@ -68,7 +68,7 @@ export default (orderC, userC, menuC) => {
 
 
   // ****** MENU ROUTES **** //
-  server.get(`${prefix}/menu`, AuthC.verifyToken, (_req, res) => menuC.read()
+  server.get(`${prefix}/menu`, (_req, res) => menuC.read()
     .then(result => res.status(result.statusCode).json(result))
     .catch(err => res.status(err.statusCode || 500).json(err)));
 

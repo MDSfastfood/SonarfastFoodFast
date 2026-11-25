@@ -138,10 +138,19 @@
             <th>Action</th>
           </thead>
           </table>
+        <p>SUBTOTAL: NGN <span id="subtotalPrice">0.00</span></p>
+        <p>DISCOUNT: NGN <span id="discountPrice">0.00</span></p>
+        <p>
+          <label for="couponCode">Coupon:</label>
+          <input type="text" id="couponCode" aria-describedby="couponMsg">
+          <button type="button" id="applyCouponBtn">Apply</button>
+          <button type="button" id="removeCouponBtn">Remove</button>
+        </p>
+        <div id="couponMsg" class="err" role="status"></div>
         <h3>
-          TOTAL PRICE: NGN <span id="totalPrice">0.00</span>
-        </h3>
-        <div id="cartErr" class="err"></div>
+           TOTAL PRICE: NGN <span id="totalPrice">0.00</span>
+         </h3>
+         <div id="cartErr" class="err"></div>
         <button type="submit" id="checkoutBtn">Submit Order</button>
       </div>
     </div>

@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch(req).then((resp) => {
     resp.json().then((res) => {
         if (res.error?.message === 'undefined' || res.error?.message === 'jwt expired') {
-          localStorage.clear();
+          ['token', 'username', 'address', 'phone', 'email', 'id'].forEach(key => localStorage.removeItem(key));
           window.location.href = 'login';
         }
       if (res.status === 'success') {
@@ -70,50 +70,73 @@ document.addEventListener('DOMContentLoaded', () => {
             } = food;
 
             let { img, description } = food;
-            if (img && img.startsWith('uploads')) {
-              img = `../${img}`;
-            }
-            if (description === null) {
-              description = `Delicious ${name} made with the finest ingredients`;
-            }
+            if (img && img.startsWith('uploads')) img = `../${img}`;
+            if (description === null) description = `Delicious ${name} made with the finest ingredients`;
+            const imageUrl = typeof img === 'string' && (img.startsWith('../') || img.startsWith('/') || /^https:\/\//.test(img)) ? img : '';
             const div = document.createElement('DIV');
             div.className = 'responsive';
             div.id = `${name}_${genre}`;
-            div.innerHTML = `
-            <div class="gallery">
-              <div class="flip-box">
-                <div class="flip-box-inner">
-                  <div class="flip-box-front">
-                    <img src="${img}" alt="${name}" id="img${foodid}">
-                  </div>
-                  <div class="flip-box-back">
-                    <h2>Description:</h2>
-                    <p>${description}</p>
-                  </div>
-                </div>
-              </div>
-              <div class="desc">
-                <h1 id="item${foodid}">${name}</h1>
-                <p class="price" id="price${foodid}">&#x20a6; ${price}.00</p>
-                <p><span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                </p>
-                <p>Select Quantity: 
-                  <select id="selectQty${foodid}">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </p>
-                <button class="buyBtn" id="buy${foodid}">Buy Now</button>
-                <button class="cartBtn" id="btn${foodid}">Add to Cart</button>
-              </div>
-            </div>`;
+            const gallery = document.createElement('DIV');
+            gallery.className = 'gallery';
+            const flipBox = document.createElement('DIV');
+            flipBox.className = 'flip-box';
+            const flipInner = document.createElement('DIV');
+            flipInner.className = 'flip-box-inner';
+            const front = document.createElement('DIV');
+            front.className = 'flip-box-front';
+            const image = document.createElement('IMG');
+            image.src = imageUrl;
+            image.alt = name;
+            image.id = `img${foodid}`;
+            front.appendChild(image);
+            const back = document.createElement('DIV');
+            back.className = 'flip-box-back';
+            const descriptionTitle = document.createElement('H2');
+            descriptionTitle.textContent = 'Description:';
+            const descriptionText = document.createElement('P');
+            descriptionText.textContent = description;
+            back.appendChild(descriptionTitle);
+            back.appendChild(descriptionText);
+            flipInner.appendChild(front);
+            flipInner.appendChild(back);
+            flipBox.appendChild(flipInner);
+            const desc = document.createElement('DIV');
+            desc.className = 'desc';
+            const title = document.createElement('H1');
+            title.id = `item${foodid}`;
+            title.textContent = name;
+            const priceText = document.createElement('P');
+            priceText.className = 'price';
+            priceText.id = `price${foodid}`;
+            priceText.textContent = `₦ ${price}.00`;
+            const stars = document.createElement('P');
+            [1, 2, 3, 4, 5].forEach(() => {
+              const star = document.createElement('SPAN');
+              star.className = 'fa fa-star checked';
+              stars.appendChild(star);
+            });
+            const quantityLabel = document.createElement('P');
+            quantityLabel.textContent = 'Select Quantity: ';
+            const quantity = document.createElement('SELECT');
+            quantity.id = `selectQty${foodid}`;
+            [1, 2, 3, 4, 5].forEach((value) => {
+              const option = document.createElement('OPTION');
+              option.textContent = value;
+              quantity.appendChild(option);
+            });
+            quantityLabel.appendChild(quantity);
+            const buy = document.createElement('BUTTON');
+            buy.className = 'buyBtn';
+            buy.id = `buy${foodid}`;
+            buy.textContent = 'Buy Now';
+            const add = document.createElement('BUTTON');
+            add.className = 'cartBtn';
+            add.id = `btn${foodid}`;
+            add.textContent = 'Add to Cart';
+            [title, priceText, stars, quantityLabel, buy, add].forEach(element => desc.appendChild(element));
+            gallery.appendChild(flipBox);
+            gallery.appendChild(desc);
+            div.appendChild(gallery);
 
             // Dynamically add pages based on no of food items per section
             sectionArr.forEach((genreSect) => {
@@ -139,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
         pagination('page1', 0);
+        document.dispatchEvent(new Event('menuLoaded'));
 
         // Listen for a click event and display corresponding food items upon click
         pgsArr.forEach((pg) => {
