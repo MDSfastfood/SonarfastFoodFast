@@ -33,9 +33,13 @@
       </div>     
       <a href='#' id="logout">Logout</a>
       <i class="fa fa-shopping-cart fa-1x" id="cartInfo"><span id="totalItems">0</span> Cart</i>
-      <a class="search">
+      <a class="search">  
+        
+          <label for="menuSearch">Search for food</label>
           <input type="text" placeholder="Search for food.." name="search" id="menuSearch">
+
           <button type="button" id="menuSearchBtn"><i class="fa fa-search"></i></button>
+
       </a>
       <a href="javascript:void(0);" class="icon">&#9776;</a>
     </nav>
@@ -116,8 +120,15 @@
         <span class="close">&times;</span>
         <h1>SHOPPING CART</h1>
         <p><b>Username: </b><span class="me"></span></p>
-        <p><b>Address: <input type="text" placeholder="Please enter your delivery address" id="userAddr"></b></p>
-        <p><b>PhoneNo: <input type="number" placeholder="Please enter your phone number" id="userPhone"></b></p>
+
+        <p>
+          <label for="userAddr">Address:</label>
+          <b>Address: <input type="text" placeholder="Please enter your delivery address" id="userAddr"></b></p>
+
+        <p>
+          <label for="userPhone">Phone No:</label>
+          <b>PhoneNo: <input type="number" placeholder="Please enter your phone number" id="userPhone"></b></p>
+
         <table id="cartTable">
           <thead>
             <th>Image</th>
@@ -137,12 +148,14 @@
      <!-- Add To Cart Modal -->
      <div id="generalModal" class="modal">
       <!-- Modal content -->
+
       <div class="modalContent general">
         <span class="close">&times;</span>
         <h1>Message From FastFoodFast</h1>
-        <h3 id="generalInfo"></h3>
+        <div id="generalInfo" role="status" aria-live="polite"></div>
       </div>
     </div>
+    
    <!-- End container div -->
   </div>
     <footer>
