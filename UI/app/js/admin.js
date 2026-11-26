@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
               document.querySelector('#editForm #isAvailable').value = isavailable;
               document.querySelector('#editForm #editDesc').value = description;
 
-              document.getElementById('editModalTitle').innerHTML = `<h1>Edit Food #${foodid}</h1>`;
+              document.getElementById('editModalTitle').textContent = `Edit Food #${foodid}`;
               displayModal(editModal, span2);
 
               const saveBtn = document.getElementById('saveBtn');

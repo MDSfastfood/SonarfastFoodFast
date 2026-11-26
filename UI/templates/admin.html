@@ -216,7 +216,7 @@
 								<div class="modalContent general">
 									<span class="close">&times;</span>
 									<h1>FastFoodFast Admin</h1>
-									<h3 id="generalInfo"></h3>
+									<p id="generalInfo" role="status" aria-live="polite"></p>
 									<button id="yes" class="approveBtn">YES</button>
 									<button id="no" class="declineBtn">NO</button>
 								</div>
@@ -257,7 +257,7 @@
 													<td><textarea name="description" id="desc" placeholder="Add a description of your food here"></textarea></td>
 												</tr>
 												</table>
-												<h3 id="createMenuMsg" class="err"></h3>
+												<p id="createMenuMsg" class="err" role="alert"></p>
 												<button type="button" id="addBtn">Add Food</button>
 												<button type="reset" id="resetBtn" class="reset">Reset</button>
 										</form>
@@ -366,8 +366,8 @@
 													<td><textarea name="description" id="editDesc" placeholder="Add a description of your food here"></textarea></td>
 												</tr>
 												</table>
-												<h3 id="editMenuMsg" class="err"></h3>
-												<button type="button" id="saveBtn">Save</button>
+												<p id="editMenuMsg" class="err" role="alert"></p>
+												<button type="button" id="saveBtn">Save</button>		
 												<button type="reset" id="editResetBtn" class="reset">Reset</button>
 											</form>
 											
