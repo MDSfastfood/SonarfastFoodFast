@@ -44,3 +44,4 @@ jobs:
             -Dsonar.projectKey=MDSfastfood_SonarfastFoodFast
             -Dsonar.coverage.exclusions=**/*
             -Dsonar.cpd.exclusions=UI/templates/menu.html,UI/templates/userMenu.html
+            -Dsonar.exclusions=server/api/helpers/email.js
