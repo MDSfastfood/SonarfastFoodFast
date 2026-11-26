@@ -163,7 +163,7 @@
 												</td>
 											</tr>
 											<tr>
-												<td class="label"><label for="freq">Frequency:</label></td>
+												<th scope="row" class="label"><label for="freq">Frequency:</label></td>
 												<td></td>
 												<td><select id="freq">
 													<option value="daily">Daily</option>
@@ -230,15 +230,15 @@
 										<form method="post" enctype="multipart/form-data" id="addForm">
 												<table>
 													<tr>
-														<td class="label"><label for="name">Name:</label></td>
+														<th scope="row" class="label"><label for="name">Name:</label></td>
 														<td><input type="text" id="name" name="name"></td>
 													</tr>
 												<tr>
-													<td class="label"><label for="price">Price:</label></td>
+													<th scope="row" class="label"><label for="price">Price:</label></td>
 													<td><input type="number" id="price" name="price"></td>
 												</tr>
 												<tr>
-													<td class="label"><label for="genre">Genre:</label></td>
+													<th scope="row" class="label"><label for="genre">Genre:</label></td>
 													<td>
 														<select id="genre" name="genre">
 															<option value="meal">Meal</option>
@@ -249,11 +249,11 @@
 													</td>
 												</tr>
 												<tr>
-													<td class="label"><label for="img">Image:</label></td>
+													<th scope="row" class="label"><label for="img">Image:</label></td>
 													<td><input type="file" name="img" id="img"></td>
 												</tr>
 												<tr>
-													<td class="label"><label for="desc">Description:</label></td>
+													<th scope="row" class="label"><label for="desc">Description:</label></td>
 													<td><textarea name="description" id="desc" placeholder="Add a description of your food here"></textarea></td>
 												</tr>
 												</table>
@@ -322,15 +322,15 @@
 											<form method="post" enctype="multipart/form-data" id="editForm">
 												<table>
 													<tr>
-														<td class="label"><label for="editName">Name:</label></td>
+														<th scope="row" class="label"><label for="editName">Name:</label></td>
 														<td><input type="text" id="editName" name="name"></td>
 													</tr>
 												<tr>
-													<td class="label"><label for="editPrice">Price:</label></td>
+													<th scope="row" class="label"><label for="editPrice">Price:</label></td>
 													<td><input type="number" id="editPrice" name="price"></td>
 												</tr>
 												<tr>
-													<td class="label"><label for="editGenre">Genre:</label></td>
+													<th scope="row" class="label"><label for="editGenre">Genre:</label></td>
 													<td>
 														<select id="editGenre" name="genre">
 															<option value="meal">Meal</option>
@@ -342,7 +342,7 @@
 													</td>
 												</tr>
 												<tr>
-													<td class="label"><label for="editImg">Image:</label></td>
+													<th scope="row" class="label"><label for="editImg">Image:</label></td>
 													<td>
 														<!-- issues -->
 														<label for="imgURL">Image URL:</label>
@@ -353,7 +353,7 @@
 													</td>
 												</tr>
 												<tr>
-														<td class="label"><label for="isAvailable">Available?</label></td>
+														<th scope="row" class="label"><label for="isAvailable">Available?</label></td>
 														<td class="available">
 															<select name="isAvailable" id="isAvailable">
 																<option value="true">YES</option>
@@ -362,7 +362,7 @@
 														</td>
 												</tr>
 												<tr>
-													<td class="label"><label for="editDesc">Description:</label></td>
+													<th scope="row" class="label"><label for="editDesc">Description:</label></td>
 													<td><textarea name="description" id="editDesc" placeholder="Add a description of your food here"></textarea></td>
 												</tr>
 												</table>
