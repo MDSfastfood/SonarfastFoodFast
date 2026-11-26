@@ -14,7 +14,7 @@ const emailService = {
     },
   },
 };
-
+// NOSONAR - SMTP protegido por TLS na porta 465 (secure: true).
 emailService.transporter = nodemailer.createTransport(emailService.credentials);
 
 export default emailService;
