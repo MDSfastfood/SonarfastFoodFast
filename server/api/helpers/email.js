@@ -1,11 +1,13 @@
+
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
-
 dotenv.config();
 
 const emailService = {
   credentials: {
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
       user: 'fastfoodfast0@gmail.com',
       pass: process.env.PASS,
