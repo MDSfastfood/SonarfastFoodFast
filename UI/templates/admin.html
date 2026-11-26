@@ -109,7 +109,8 @@
 													</select>
 											</td>
 										<td class="month">
-											<select name="" id="fromMonth">
+											<label for="fromMonth">From month:</label>
+												<select name="" id="fromMonth">
 												<option value="01">Jan</option>
 												<option value="02">Feb</option>
 												<option value="03">Mar</option>
@@ -124,10 +125,13 @@
 												<option value="12">Dec</option>
 											</select>
 										</td>
-											<td class="day"><select id="fromDay"></select></td>
+											<td class="day">
+												<label for="fromDay">From day:</label>
+												<select id="fromDay"></select>
+											</td>
 										</tr>
 										<tr>
-												<td class="label">To:</td>
+												<label class="label" for="toYr">To year:</label>
 												<td class="yr">
 														<select id="toYr">
 															<option value="2016">2016</option>
@@ -137,7 +141,8 @@
 														</select>
 												</td>
 												<td class="month">
-														<select id="toMonth">
+														<label for="toMonth">To month:</label>
+															<select id="toMonth">
 															<option value="01">Jan</option>
 															<option value="02">Feb</option>
 															<option value="03">Mar</option>
@@ -152,7 +157,10 @@
 															<option value="12">Dec</option>
 														</select>
 													</td>
-												<td class="day"><select id="toDay"></select></td>
+												<td class="day">
+													<label for="toDay">To day:</label>
+													<select id="toDay"></select>
+												</td>
 											</tr>
 											<tr>
 												<td class="label"><label for="freq">Frequency:</label></td>
